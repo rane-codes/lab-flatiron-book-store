@@ -45,3 +45,28 @@ const bookStore = {
 
 // Write your code here!
 
+// 1. Select the element with the id "header" and save it as bookStoreTitle
+const bookStoreTitle = document.getElementById("header");
+
+// 2. Change its textContent to the name property of bookStore
+bookStoreTitle.textContent = bookStore.name;
+
+// 3. Select the element with the id "book-list" and save it as bookList
+const bookList = document.getElementById("book-list");
+
+// 4. Loop through every book in the bookStore's books property
+bookStore.books.forEach((book) => {
+  const bookContainer = document.createElement("li");
+  const bookTitle = document.createElement("h3");
+  const bookAuthor = document.createElement("p");
+  const bookImage = document.createElement("img");
+
+  bookTitle.textContent = book.title;
+  bookAuthor.textContent = book.author;
+  bookImage.src = book.imageUrl;
+
+  bookContainer.append(bookTitle, bookAuthor, bookImage);
+  bookList.appendChild(bookContainer);
+});
+
+document.getElementById("delete-this").remove();
